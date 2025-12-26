@@ -15,6 +15,8 @@
         <p id="res">waiting...</p>
     </form>
     <button id="connect">Connect</button>
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+
     <script>
         const form = document.getElementById("send-form")
         const msg = document.getElementById("msg-box")
@@ -35,6 +37,10 @@
   })
 });
     }
+    connect.addEventListener("click",(e) => {
+      e.preventDefault()
+
+    })
 
     textRes.innerText = res
     </script>
