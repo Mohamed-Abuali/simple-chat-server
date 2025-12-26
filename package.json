@@ -1,0 +1,24 @@
+{
+  "name": "chat_server",
+  "version": "1.0.0",
+  "description": "simple chat server",
+  "keywords": [
+    "chat",
+    "server"
+  ],
+  "homepage": "https://github.com/Mohamed-Abuali/simple-chat-server#readme",
+  "bugs": {
+    "url": "https://github.com/Mohamed-Abuali/simple-chat-server/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mohamed-Abuali/simple-chat-server.git"
+  },
+  "license": "ISC",
+  "author": "Mohamed Abuali",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
