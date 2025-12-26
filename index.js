@@ -1,4 +1,5 @@
 const http = require("http")
+import {Server}  from "socket.io"
 
 const server = http.createServer((request,response) => {
       response.setHeader('Access-Control-Allow-Origin', '*');
@@ -41,5 +42,7 @@ const server = http.createServer((request,response) => {
 server.listen(3000,() => {
     console.log("server is running on port 3000")
 })
+
+
 
  
