@@ -5,7 +5,14 @@ const server = http.createServer((request,response) => {
     response.setHeader('Access-Control-Allow-Methods', 'OPTIONS, POST, GET');
     response.setHeader('Access-Control-Allow-Headers', 'Content-Type');
     console.log("url:" + request.url,"method:"+request.method)
-    if(request.url === "/send" ){
+
+    if (request.method === 'OPTIONS') {
+        response.writeHead(204);
+        response.end();
+        return;
+    }
+
+    if(request.url === "/send" && request.method === "POST"){
 
         
         let body = "";
