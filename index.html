@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chat server</title>
+</head>
+<body>  
+    <form  id="send-form">
+        <label for="msg-box">Message box</label>
+        <input id="msg-box" type="text" placeholder="enter your message"/>
+        <button id="send" type="submit">Send</button>
+    </form>
+    <script>
+        const form = document.getElementById("send-form")
+        const msg = document.getElementById("msg-box")
+        form.addEventListener("submit",submit)
+        function submit(e){
+            e.preventDefault()
+        fetch("http://localhost:3000/send", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    senderId: 1,
+    receiverId: 2,
+    message: msg.value
+  })
+});
+    }
+
+    </script>
+</body>
+</html>
