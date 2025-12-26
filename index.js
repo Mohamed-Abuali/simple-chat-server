@@ -47,4 +47,7 @@ server.listen(3000,() => {
 const socket = new Server(8000,() => {
   cors:{origin:"*"}
 })
+socket.on("connection",(con) => {
+  console.log("user connected",con)
+});
  
