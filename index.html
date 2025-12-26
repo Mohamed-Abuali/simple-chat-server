@@ -14,10 +14,12 @@
         <button id="send" type="submit">Send</button>
         <p id="res">waiting...</p>
     </form>
+    <button id="connect">Connect</button>
     <script>
         const form = document.getElementById("send-form")
         const msg = document.getElementById("msg-box")
         const textRes = document.getElementById("res");
+        
         form.addEventListener("submit",submit)
         function submit(e){
             e.preventDefault()
