@@ -1,6 +1,9 @@
 const http = require("http")
 
 const server = http.createServer((request,response) => {
+      response.setHeader('Access-Control-Allow-Origin', '*');
+    response.setHeader('Access-Control-Allow-Methods', 'OPTIONS, POST, GET');
+    response.setHeader('Access-Control-Allow-Headers', 'Content-Type');
     console.log("url:" + request.url,"method:"+request.method)
     if(request.url === "/send" ){
 

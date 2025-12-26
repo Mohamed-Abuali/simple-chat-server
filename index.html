@@ -10,14 +10,16 @@
         <label for="msg-box">Message box</label>
         <input id="msg-box" type="text" placeholder="enter your message"/>
         <button id="send" type="submit">Send</button>
+        <p id="res">waiting...</p>
     </form>
     <script>
         const form = document.getElementById("send-form")
         const msg = document.getElementById("msg-box")
+        const textRes = document.getElementById("res");
         form.addEventListener("submit",submit)
         function submit(e){
             e.preventDefault()
-        fetch("http://localhost:3000/send", {
+       const res =  fetch("http://localhost:3000/send", {
   method: "POST",
   headers: {
     "Content-Type": "application/json"
@@ -30,6 +32,7 @@
 });
     }
 
+    textRes.innerText = res
     </script>
 </body>
 </html>
