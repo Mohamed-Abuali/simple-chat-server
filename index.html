@@ -42,6 +42,9 @@
     connect.addEventListener("click",(e) => {
       e.preventDefault()
       socket.emit("message","Hello Server")
+      socket.on("reply",(data) => {
+        console.log(data)
+      })
     })
 
     textRes.innerText = res
