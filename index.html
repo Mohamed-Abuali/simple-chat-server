@@ -22,6 +22,8 @@
         const msg = document.getElementById("msg-box")
         const textRes = document.getElementById("res");
         const connect = document.getElementById("connect");
+          const socket = io("http://localhost:8000");
+
         form.addEventListener("submit",submit)
         function submit(e){
             e.preventDefault()
@@ -39,7 +41,7 @@
     }
     connect.addEventListener("click",(e) => {
       e.preventDefault()
-
+      
     })
 
     textRes.innerText = res
