@@ -22,7 +22,7 @@
         const msg = document.getElementById("msg-box")
         const textRes = document.getElementById("res");
         const connect = document.getElementById("connect");
-          const socket = io("http://localhost:8000");
+         
 
         form.addEventListener("submit",submit)
         function submit(e){
@@ -41,6 +41,7 @@
     }
     connect.addEventListener("click",(e) => {
       e.preventDefault()
+      const socket = io("http://localhost:8000");
       socket.emit("message","Hello Server")
       socket.on("reply",(data) => {
         console.log(data)
