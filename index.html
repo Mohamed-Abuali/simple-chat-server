@@ -41,7 +41,7 @@
     }
     connect.addEventListener("click",(e) => {
       e.preventDefault()
-      
+      socket.emit("message","Hello Server")
     })
 
     textRes.innerText = res

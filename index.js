@@ -48,6 +48,10 @@ const socket = new Server(8000,() => {
   cors:{origin:"*"}
 })
 socket.on("connection",(con) => {
-  console.log("user connected",con)
+  console.log("user connected",con.id)
+  con.on("message",(data) => {
+    console.log(data)
+    con.emit("reply","Hello Client")
+  })
 });
  
