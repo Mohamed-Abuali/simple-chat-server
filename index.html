@@ -42,9 +42,9 @@
     connect.addEventListener("click",(e) => {
       e.preventDefault()
       const socket = io("http://localhost:8000");
-      socket.emit("message","Hello Server")
+      socket.emit("message",msg.value)
       socket.on("reply",(data) => {
-        console.log(data)
+        textRes.innerText = data;
       })
     })
 
