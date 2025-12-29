@@ -40,8 +40,8 @@
     send.addEventListener("click",(e) => {
       e.preventDefault()
      socket.emit("pri-msg",{
-        senderId:id.value,
-        receiverId:res.value,
+        from:id.value,
+        to:res.value,
         msg:msg.value
       })
     })

@@ -52,6 +52,9 @@ socket.on("connection",(con) => {
   con.on("join",(userid) => {
     console.log(userid)
   })
+  con.on("pri-msg",({from,to,msg}) => {
+    
+  })
 
   con.on("message",(data) => {
     console.log(data)
