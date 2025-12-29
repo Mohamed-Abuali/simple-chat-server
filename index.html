@@ -21,6 +21,8 @@
       
         const msg = document.getElementById("msg-box")
         const id = document.getElementById("sender");
+        const res = document.getElementById("receiver");
+
         const textRes = document.getElementById("res");
         const connect = document.getElementById("connect");
         const send = document.getElementById("send");
@@ -34,7 +36,7 @@
       
       socket.emit("join",{
         senderId:id.value,
-        receiverId:1234,
+        receiverId:res.value,
         msg:msg.value
       })
      
