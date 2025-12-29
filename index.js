@@ -1,4 +1,5 @@
 // const http = require("http")
+import { use } from "react";
 import {Server}  from "socket.io"
 
 // const server = http.createServer((request,response) => {
@@ -49,7 +50,9 @@ const socket = new Server(8000,{
 socket.on("connection",(con) => {
 
   console.log("user connected",con.id)
-
+  con.on("join",(userid) => {
+    console.log(userid)
+  })
 
   con.on("message",(data) => {
     console.log(data)

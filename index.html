@@ -6,49 +6,44 @@
     <title>chat server</title>
 </head>
 <body>  
-    <form  id="send-form">
+
         <label for="msg-box">Message box</label>
         <input id="sender" type="text" placeholder="enter your id"/>
         <input id="receiver" type="text" placeholder="enter the receiver id"/>
         <input id="msg-box" type="text" placeholder="enter your message"/>
-        <button id="send" type="submit">Send</button>
-        <p id="res">waiting...</p>
-    </form>
+        <button id="send">Send</button>
+        
+
     <button id="connect">Connect</button>
     <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
 
     <script>
-        const form = document.getElementById("send-form")
+      
         const msg = document.getElementById("msg-box")
+        const id = document.getElementById("sender");
         const textRes = document.getElementById("res");
         const connect = document.getElementById("connect");
-         
+        const send = document.getElementById("send");
 
-        form.addEventListener("submit",submit)
-        function submit(e){
-            e.preventDefault()
-       const res =  fetch("http://localhost:3000/send", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json"
-  },
-  body: JSON.stringify({
-    senderId: 1,
-    receiverId: 2,
-    message: msg.value
-  })
-});
-    }
+        const socket = io("http://localhost:8000");
+
+
+    
     connect.addEventListener("click",(e) => {
       e.preventDefault()
-      const socket = io("http://localhost:8000");
+      
+      socket.join("join",id)
+     
+    })
+        send.addEventListener("click",(e) => {
+      e.preventDefault()
       socket.emit("message",msg.value)
       socket.on("reply",(data) => {
         textRes.innerText = data;
       })
     })
 
-    textRes.innerText = res
+    
     </script>
 </body>
 </html>
