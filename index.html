@@ -32,7 +32,11 @@
     connect.addEventListener("click",(e) => {
       e.preventDefault()
       
-      socket.join("join",id)
+      socket.emit("join",{
+        senderId:id.value,
+        receiverId:1234,
+        msg:msg.value
+      })
      
     })
         send.addEventListener("click",(e) => {
