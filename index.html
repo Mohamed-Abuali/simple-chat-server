@@ -45,6 +45,11 @@
         msg:msg.value
       })
     })
+    socket.on("msg",(msg) => {
+      if(msg?.to === id.value){
+      textRes.innerText = msg?.msg;
+      }
+    })
 
     
     </script>
