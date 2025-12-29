@@ -34,18 +34,15 @@
     connect.addEventListener("click",(e) => {
       e.preventDefault()
       
-      socket.emit("join",{
+      socket.emit("join",id.value)
+     
+    })
+    send.addEventListener("click",(e) => {
+      e.preventDefault()
+     socket.emit("pri-msg",{
         senderId:id.value,
         receiverId:res.value,
         msg:msg.value
-      })
-     
-    })
-        send.addEventListener("click",(e) => {
-      e.preventDefault()
-      socket.emit("message",msg.value)
-      socket.on("reply",(data) => {
-        textRes.innerText = data;
       })
     })
 
