@@ -7,7 +7,7 @@
 </head>
 <body>  
 
-        <label for="msg-box">Message box</label>
+      
         <input id="sender" type="text" placeholder="enter your id"/>
         <input id="receiver" type="text" placeholder="enter the receiver id"/>
         <input id="msg-box" type="text" placeholder="enter your message"/>
@@ -46,9 +46,9 @@
       })
     })
     socket.on("msg",(msg) => {
-      if(msg?.to === id.value){
-      textRes.innerText = msg?.msg;
-      }
+      
+      textRes.innerText = `${msg.from} ${msg.msg}`;
+      
     })
 
     

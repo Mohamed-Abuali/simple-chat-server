@@ -42,28 +42,28 @@ import {Server}  from "socket.io"
 
 
 
-const socket = new Server(8000,{
+const io = new Server(8000,{
   cors:{origin:"*"}
   
 })
-socket.on("connection",(con) => {
+io.on("connection",(socket) => {
 
-  console.log("user connected",con.id)
-  con.on("join",(userid) => {
-    con.join(userid)
+  console.log("user connected",socket.id)
+  socket.on("join",(userid) => {
+    socket.join(userid)
     console.log(userid)
   })
-  con.on("pri-msg",({from,to,msg}) => {
-    socket.to(to).emit("msg",{
+  socket.on("pri-msg",({from,to,msg}) => {
+    io.to(to).emit("msg",{
       from,
       to,
       msg
     })
   })
 
-  con.on("message",(data) => {
+  socket.on("message",(data) => {
     console.log(data)
-    con.emit("reply","Hello Client")
+    socket.emit("reply","Hello Client")
   })
 });
  
