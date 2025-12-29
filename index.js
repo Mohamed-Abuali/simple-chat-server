@@ -53,7 +53,11 @@ socket.on("connection",(con) => {
     console.log(userid)
   })
   con.on("pri-msg",({from,to,msg}) => {
-    
+    socket.to(to).emit("msg",{
+      from,
+      to,
+      msg
+    })
   })
 
   con.on("message",(data) => {
