@@ -2,7 +2,9 @@
 import {Server}  from "socket.io"
 
 
+let messages = {
 
+}
 
 const io = new Server(8000,{
   cors:{origin:"*"}
@@ -16,6 +18,11 @@ io.on("connection",(socket) => {
     console.log(userid)
   })
   socket.on("pri-msg",({from,to,msg}) => {
+    messages.append({
+      sender:from,
+      receiver:to,
+      messages:msg
+    })
     io.to(to).emit("msg",{
       from,
       to,
