@@ -2,9 +2,7 @@
 import {Server}  from "socket.io"
 
 
-let messages = {
-
-}
+let messages = []
 
 const io = new Server(8000,{
   cors:{origin:"*"}
@@ -19,16 +17,16 @@ io.on("connection",(socket) => {
   })
   socket.on("pri-msg",({from,to,msg}) => {
     if(messages.includes(`${from}${to}`)){
-    messages[`${from}${to}`].messages.append(msg)
+    messages[`${from}${to}`].messages.push(msg)
     }else{
       const chatID = `${from}${to}`;
-      messages.append({
+      messages.push({
         chatID:{
           messages:msg
         }
       })
     }
-    const hist = messages[`${from}${to}`].messages
+    const hist = messages.find(m => m.chatID === `${from}${to}`)?.messages ?? [];
     io.to(to).emit("msg",{
       from,
       to,
@@ -41,4 +39,3 @@ io.on("connection",(socket) => {
     socket.emit("reply","Hello Client")
   })
 });
- 
