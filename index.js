@@ -18,11 +18,10 @@ io.on("connection",(socket) => {
     console.log(userid)
   })
   socket.on("pri-msg",({from,to,msg}) => {
-    messages.append({
-      sender:from,
-      receiver:to,
-      messages:msg
-    })
+    if(messages.includes(`${from}${to}`)){
+    messages[`${from}${to}`].messages.append(msg)
+    }
+
     io.to(to).emit("msg",{
       from,
       to,
