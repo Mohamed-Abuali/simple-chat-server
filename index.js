@@ -19,13 +19,14 @@ io.on("connection",(socket) => {
     if(messages.includes(`${from}${to}`)){
     messages[`${from}${to}`].messages.push(msg)
     }else{
-      const chatID = `${from}${to}`;
+      
       messages.push({
        [`${from}${to}`]:{
           messages:msg
         }
       })
     }
+    const chatID = `${from}${to}`;
     const hist = messages.find(m => m.chatID === `${from}${to}`)?.messages ?? [];
     io.to(to).emit("msg",{
       from,
