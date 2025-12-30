@@ -20,6 +20,13 @@ io.on("connection",(socket) => {
   socket.on("pri-msg",({from,to,msg}) => {
     if(messages.includes(`${from}${to}`)){
     messages[`${from}${to}`].messages.append(msg)
+    }else{
+      const chatID = `${from}${to}`;
+      messages.append({
+        chatID:{
+          messages:msg
+        }
+      })
     }
 
     io.to(to).emit("msg",{
