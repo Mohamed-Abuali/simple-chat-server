@@ -26,8 +26,8 @@ io.on("connection",(socket) => {
         }
       })
     }
-    const chatID = `${from}${to}`;
-    const hist = messages.find(m => m.chatID === `${from}${to}`)?.messages ?? [];
+    
+    const hist = messages.find(m => m[`${from}${to}`] === `${from}${to}`)?.messages ?? [];
     io.to(to).emit("msg",{
       from,
       to,
