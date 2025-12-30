@@ -21,7 +21,7 @@ io.on("connection",(socket) => {
     }else{
       const chatID = `${from}${to}`;
       messages.push({
-        chatID:{
+       [`${from}${to}`]:{
           messages:msg
         }
       })
