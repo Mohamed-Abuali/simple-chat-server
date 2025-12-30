@@ -28,11 +28,11 @@ io.on("connection",(socket) => {
         }
       })
     }
-
+    const hist = messages[`${from}${to}`].messages
     io.to(to).emit("msg",{
       from,
       to,
-      msg
+      hist
     })
   })
 
