@@ -15,6 +15,7 @@
         <p id="res">waiting...</p>
 
     <button id="connect">Connect</button>
+    <p id="join">waiting to join...</p>
     <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
 
     <script>
@@ -22,6 +23,7 @@
         const msg = document.getElementById("msg-box")
         const id = document.getElementById("sender");
         const res = document.getElementById("receiver");
+        const join = document.getElementById("join");
 
         const textRes = document.getElementById("res");
         const connect = document.getElementById("connect");
@@ -35,6 +37,10 @@
       e.preventDefault()
       
       socket.emit("join",id.value)
+      socket.on("reply",(data) => {
+        join.innerText = data;
+        join.style.color = "green"
+      })
      
     })
     send.addEventListener("click",(e) => {
