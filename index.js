@@ -31,4 +31,7 @@ io.on("connection",(socket) => {
     console.log(data)
     socket.emit("reply","Hello Client")
   })
+  socket.on("disconnect",() => {
+
+  })
 });
