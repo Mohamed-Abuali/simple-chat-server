@@ -15,11 +15,13 @@ io.on("connection",(socket) => {
     return true
   })
   socket.on("create",(userid,roomName) => {
-    const roomid = Math.random(1,9999)
-    rooms[roomid].push({
+    const roomid = Math.floor(Math.random() * 9999) +1;
+    const roomInfo = {
       author:userid,
       name:roomName
-    })
+    }
+    if(!rooms[roomid]) rooms[roomid] = []
+    rooms[roomid].push(roomInfo)
     socket.emit("roomid",roomid)
   })
   socket.on("join",(userid) => {

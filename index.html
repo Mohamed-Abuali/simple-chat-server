@@ -18,6 +18,8 @@
     <p id="join">waiting to join...</p>
     <div id="rooms">
       <button id="create-room">Create A New Room</button>
+      <input id="room-name" type="text" placeholder="enter your room name" required/>
+
     </div>
     <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
 
@@ -33,11 +35,12 @@
         const send = document.getElementById("send");
 
         const createBtn = document.getElementById("create-room")
+        const roomName = document.getElementById("room-name")
         const socket = io("http://localhost:8000");
       
 
     createBtn.addEventListener("click",() => {
-      socket.emit("create",{userid:id.value,roomName:"First Room"})
+      socket.emit("create",{userid:id.value,roomName:roomName.value})
       socket.on("roomid",(roomid) => {
         console.log(roomid)
       })
