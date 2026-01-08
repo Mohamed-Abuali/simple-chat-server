@@ -12,7 +12,7 @@ io.on("connection",(socket) => {
 
   console.log("user connected",socket.id)
   socket.emit("connected",() => {
-    return true
+    socket.emit("reply",true)
   })
 
   
@@ -59,6 +59,6 @@ io.on("connection",(socket) => {
     socket.emit("reply","Hello Client")
   })
   socket.on("disconnect",() => {
-    return false
+    socket.emit("reply",false)
   })
 });
