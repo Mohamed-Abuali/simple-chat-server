@@ -37,7 +37,7 @@
 
 
     createBtn.addEventListener("click",() => {
-      socket.emit("create")
+      socket.emit("create",{userid:id.value,roomName:"First Room"})
     })
 
     connect.addEventListener("click",(e) => {
