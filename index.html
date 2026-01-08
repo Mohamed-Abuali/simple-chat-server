@@ -21,7 +21,7 @@
       <input id="room-name" type="text" placeholder="enter your room name" required/>
 
       <input id="room-id" type="text" placeholder="enter the room id" required/>
-      <button id="create-room">Join</button>
+      <button id="join-room">Join</button>
 
     </div>
     <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
@@ -39,6 +39,8 @@
 
         const createBtn = document.getElementById("create-room")
         const roomName = document.getElementById("room-name")
+        const joinBtn = document.getElementById("join-room")
+        const roomId = document.getElementById("room-id")
         const socket = io("http://localhost:8000");
       
 
