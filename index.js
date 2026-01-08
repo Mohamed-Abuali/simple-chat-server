@@ -26,7 +26,7 @@ io.on("connection",(socket) => {
   })
   socket.on("join",(roomid) => {
     socket.join(roomid)
-    socket.emit("reply",`user has joined the room`)
+    socket.emit("reply",`user has joined the room ${roomid}`)
     console.log(roomid)
   })
   socket.on("pri-msg", ({ from, to, msg }) => {
