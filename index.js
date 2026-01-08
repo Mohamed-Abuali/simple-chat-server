@@ -25,7 +25,7 @@ io.on("connection",(socket) => {
     socket.emit("roomid",roomid)
   })
   socket.on("join",(roomid) => {
-    if(!rooms[roomid]) socket.emit("reply",`the room ${roomid} don not exist`)
+    if(!rooms[roomid]) {socket.emit("reply",`the room ${roomid} don not exist`)};
     socket.join(roomid)
     socket.emit("reply",`user has joined the room ${roomid}`)
     console.log(roomid)
