@@ -34,7 +34,7 @@
 
         const createBtn = document.getElementById("create-room")
         const socket = io("http://localhost:8000");
-
+      
 
     createBtn.addEventListener("click",() => {
       socket.emit("create",{userid:id.value,roomName:"First Room"})
@@ -42,7 +42,7 @@
 
     connect.addEventListener("click",(e) => {
       e.preventDefault()
-      
+      socket.emit("connection")
       socket.emit("join",id.value)
       socket.on("reply",(data) => {
         join.innerText = data;
