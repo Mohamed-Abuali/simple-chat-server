@@ -16,6 +16,9 @@
 
     <button id="connect">Connect</button>
     <p id="join">waiting to join...</p>
+    <div id="rooms">
+      <button id="create-room">Create A New Room</button>
+    </div>
     <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
 
     <script>
@@ -29,10 +32,12 @@
         const connect = document.getElementById("connect");
         const send = document.getElementById("send");
 
+        const createBtn = document.getElementById("create-room")
         const socket = io("http://localhost:8000");
 
 
-    
+    createBtn.addEventListener("click",())
+
     connect.addEventListener("click",(e) => {
       e.preventDefault()
       
