@@ -50,15 +50,19 @@
         console.log(roomid)
       })
     })
+    joinBtn.addEventListener("click",() => {
+      socket.emit("join",roomId.value)
+            socket.on("reply",(data) => {
+        join.innerText = data;
+        join.style.color = "green"
+      })
+    })
 
     connect.addEventListener("click",(e) => {
       e.preventDefault()
       socket.emit("connection")
-      socket.emit("join",id.value)
-      socket.on("reply",(data) => {
-        join.innerText = data;
-        join.style.color = "green"
-      })
+      
+
      
     })
     send.addEventListener("click",(e) => {
