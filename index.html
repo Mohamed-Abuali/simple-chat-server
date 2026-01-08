@@ -60,8 +60,10 @@
 
     connect.addEventListener("click",(e) => {
       e.preventDefault()
-      socket.emit("connected",(data) => {
-        console.log(data)
+      socket.emit("connected",() => {
+        socket.on("reply",(data) => {
+          console.log(data)
+        })
       })
       
 
