@@ -14,6 +14,8 @@ io.on("connection",(socket) => {
   socket.emit("connected",() => {
     return true
   })
+
+  
   socket.on("create",(userid,roomName) => {
     const roomid = Math.floor(Math.random() * 9999) +1;
     const roomInfo = {
@@ -24,6 +26,9 @@ io.on("connection",(socket) => {
     rooms[roomid].push(roomInfo)
     socket.emit("roomid",roomid)
   })
+
+
+
   socket.on("join",(roomid) => {
     if(!rooms[roomid]) {
       socket.emit("reply",`the room ${roomid} don not exist`)
@@ -34,6 +39,8 @@ io.on("connection",(socket) => {
     }
 
   })
+
+
   socket.on("pri-msg", ({ from, to, msg }) => {
     const chatID = `${from}${to}:`;
   
@@ -44,6 +51,8 @@ io.on("connection",(socket) => {
     // send history to receiver
     io.to(to).emit("msg", { from, to, hist: messages[chatID] });
   });
+
+
 
   socket.on("message",(data) => {
     console.log(data)
