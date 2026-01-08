@@ -30,7 +30,7 @@ io.on("connection",(socket) => {
     console.log(userid)
   })
   socket.on("pri-msg", ({ from, to, msg }) => {
-    const chatID = `${from}${to}`;
+    const chatID = `${from}${to}:`;
   
     // store
     if (!messages[chatID]) messages[chatID] = [];
