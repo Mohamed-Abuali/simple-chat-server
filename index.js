@@ -24,10 +24,10 @@ io.on("connection",(socket) => {
     rooms[roomid].push(roomInfo)
     socket.emit("roomid",roomid)
   })
-  socket.on("join",(userid) => {
-    socket.join(userid)
-    socket.emit("reply","user has joined the room")
-    console.log(userid)
+  socket.on("join",(roomid) => {
+    socket.join(roomid)
+    socket.emit("reply",`user has joined the room`)
+    console.log(roomid)
   })
   socket.on("pri-msg", ({ from, to, msg }) => {
     const chatID = `${from}${to}:`;
