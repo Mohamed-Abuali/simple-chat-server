@@ -54,10 +54,7 @@ io.on("connection",(socket) => {
 
 
 
-  socket.on("message",(data) => {
-    console.log(data)
-    socket.emit("reply","Hello Client")
-  })
+  
   socket.on("disconnect",() => {
     socket.emit("reply",false)
   })
