@@ -31,7 +31,7 @@ io.on("connection",(socket) => {
 
   socket.on("join",(roomid) => {
     if(!rooms[roomid]) {
-      socket.emit("reply",`the room ${roomid} don not exist`)
+      socket.emit("reply",`this room ${roomid} don not exist`)
     }else{
     socket.join(roomid)
     socket.emit("reply",`user has joined the room ${roomid}`)
